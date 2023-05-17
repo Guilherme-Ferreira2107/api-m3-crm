@@ -5,6 +5,7 @@ import { QuotationModule } from './quotation.module';
 import { EquipmentsModule } from './equipments.module';
 import { StockMovementsModule } from './stock-movements.module';
 import { BillingModule } from './billing.module';
+import { PaymentsModule } from './payments.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { BillingModule } from './billing.module';
     EquipmentsModule,
     StockMovementsModule,
     BillingModule,
+    PaymentsModule,
   ],
 })
 export class CoreModule {}

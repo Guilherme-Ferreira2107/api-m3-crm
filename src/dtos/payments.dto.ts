@@ -1,15 +1,15 @@
 import { IsNotEmpty, IsNumber, IsDateString } from 'class-validator';
 
-export class BillingDto {
+export class PaymentsDto {
   @IsNotEmpty()
   @IsNumber()
   contractId: number;
 
   @IsNotEmpty()
   @IsDateString()
-  dateBilling: Date;
+  datePayments: Date;
 
   @IsNotEmpty()
   @IsNumber()
-  billingValue: number;
+  paymentsValue: number;
 }
