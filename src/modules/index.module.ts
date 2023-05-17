@@ -7,6 +7,7 @@ import { StockMovementsModule } from './stock-movements.module';
 import { BillingModule } from './billing.module';
 import { PaymentsModule } from './payments.module';
 import { SupportModule } from './support.module';
+import { ProposalsModule } from './proposals.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { SupportModule } from './support.module';
     BillingModule,
     PaymentsModule,
     SupportModule,
+    ProposalsModule,
   ],
 })
 export class CoreModule {}

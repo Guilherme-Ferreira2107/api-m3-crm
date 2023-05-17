@@ -6,6 +6,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { ClientEntity } from '../entities/client.entity';
+import { ProposalsEntity } from './proposals.entity';
 
 @Entity('quotation')
 export class QuotationEntity {
@@ -21,7 +22,10 @@ export class QuotationEntity {
   @Column()
   itens: string;
 
-  @ManyToOne(() => ClientEntity, (client) => client.quotation)
+  @ManyToOne(() => ClientEntity, (item) => item.quotation)
   @JoinColumn({ name: 'client_id' })
   client: ClientEntity;
+
+  @ManyToOne(() => ProposalsEntity, (item) => item.quotation)
+  proposal: ProposalsEntity;
 }
