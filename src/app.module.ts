@@ -8,7 +8,7 @@ import { CoreModule } from './modules/index.module';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: './src/database/database.sqlite', // Caminho para o arquivo do banco de dados SQLite
+      database: './src/database/database.sqlite',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),

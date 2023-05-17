@@ -3,7 +3,7 @@ import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 export class ClientDto {
   @IsNotEmpty()
   @IsString()
-  nome: string;
+  name: string;
 
   @IsNotEmpty()
   @IsString()
@@ -11,9 +11,9 @@ export class ClientDto {
 
   @IsOptional()
   @IsString()
-  endereco?: string;
+  address?: string;
 
   @IsOptional()
   @IsString()
-  telefone?: string;
+  phone?: string;
 }
