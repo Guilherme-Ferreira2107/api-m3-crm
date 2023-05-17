@@ -23,13 +23,9 @@ export class ClientEntity {
   phone: string;
 
   // Relacionamento com ContractEntity (One-to-Many)
-  @OneToMany(() => ContractEntity, (contrato) => contrato.client)
+  @OneToMany(() => ContractEntity, (contract) => contract.client)
   contract: ContractEntity[];
 
-  @OneToMany(() => QuotationEntity, (cotacao) => cotacao.client)
+  @OneToMany(() => QuotationEntity, (quotation) => quotation.client)
   quotation: QuotationEntity[];
-
-  // Outros campos da entidade...
-
-  // Outros relacionamentos com outras entidades...
 }

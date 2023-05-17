@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { ClientEntity } from '../entities/client.entity';
 
 @Entity('quotation')
@@ -10,11 +16,12 @@ export class QuotationEntity {
   clientId: number;
 
   @Column()
-  dataQuotation: Date;
+  dateQuotation: Date;
 
   @Column()
-  totalValue: number;
+  itens: string;
 
   @ManyToOne(() => ClientEntity, (client) => client.quotation)
+  @JoinColumn({ name: 'cliente_id' })
   client: ClientEntity;
 }

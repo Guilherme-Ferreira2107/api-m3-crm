@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsDateString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsDateString, IsString } from 'class-validator';
 
 export class QuotationDto {
   @IsNotEmpty()
@@ -10,6 +10,6 @@ export class QuotationDto {
   dateQuotation: Date;
 
   @IsNotEmpty()
-  @IsNumber()
-  totalValue: number;
+  @IsString()
+  itens: string;
 }
