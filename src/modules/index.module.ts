@@ -4,6 +4,7 @@ import { ContratosModule } from './contract.module';
 import { QuotationModule } from './quotation.module';
 import { EquipmentsModule } from './equipments.module';
 import { StockMovementsModule } from './stock-movements.module';
+import { BillingModule } from './billing.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { StockMovementsModule } from './stock-movements.module';
     QuotationModule,
     EquipmentsModule,
     StockMovementsModule,
+    BillingModule,
   ],
 })
 export class CoreModule {}

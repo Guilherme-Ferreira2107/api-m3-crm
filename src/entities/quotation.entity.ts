@@ -22,6 +22,6 @@ export class QuotationEntity {
   itens: string;
 
   @ManyToOne(() => ClientEntity, (client) => client.quotation)
-  @JoinColumn({ name: 'cliente_id' })
+  @JoinColumn({ name: 'client_id' })
   client: ClientEntity;
 }

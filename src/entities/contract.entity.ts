@@ -5,6 +5,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
+import { BillingEntity } from './billing.entity';
 import { ClientEntity } from './client.entity';
 import { EquipmentsEntity } from './equipments.entity';
 
@@ -35,4 +36,7 @@ export class ContractEntity {
   @ManyToOne(() => EquipmentsEntity, (equipment) => equipment.contract)
   @JoinColumn({ name: 'equipments_id' })
   equipment: EquipmentsEntity;
+
+  @ManyToOne(() => BillingEntity, (billing) => billing.contract)
+  billing: BillingEntity;
 }
