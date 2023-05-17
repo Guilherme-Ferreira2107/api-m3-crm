@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { ClientEntity } from './client.entity';
+import { EquipmentsEntity } from './equipments.entity';
 
 @Entity('contract')
 export class ContractEntity {
@@ -15,11 +16,9 @@ export class ContractEntity {
   @Column({ type: 'date' })
   dateFinal: Date;
 
-  // Relacionamento com ClientesEntity (Many-to-One)
   @ManyToOne(() => ClientEntity, (client) => client.contract)
   client: ClientEntity;
 
-  // Outros campos da entidade...
-
-  // Outros relacionamentos com outras entidades...
+  @ManyToOne(() => EquipmentsEntity, (equipment) => equipment.contract)
+  equipment: EquipmentsEntity;
 }

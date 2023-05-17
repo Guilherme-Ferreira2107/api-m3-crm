@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { EquipmentsEntity } from '../entities/equipments.entity';
 import { EquipmentsDto } from '../dtos/equipments.dto';
+import { EquipmentsEntity } from '../entities/equipments.entity';
 
 @Injectable()
 export class EquipmentsService {
@@ -11,10 +11,8 @@ export class EquipmentsService {
     private equipmentsRepository: Repository<EquipmentsEntity>,
   ) {}
 
-  async createEquipments(
-    equipmentsDto: EquipmentsDto,
-  ): Promise<EquipmentsEntity> {
-    return this.equipmentsRepository.save(equipmentsDto);
+  async createEquipments(equipments: EquipmentsDto): Promise<EquipmentsEntity> {
+    return this.equipmentsRepository.save(equipments);
   }
 
   async getEquipmentsById(id: number): Promise<EquipmentsEntity> {

@@ -7,8 +7,8 @@ import {
   Put,
   Delete,
 } from '@nestjs/common';
-import { QuotationService } from '../services/quotation.service';
 import { QuotationDto } from '../dtos/quotation.dto';
+import { QuotationService } from '../services/quotation.service';
 
 @Controller('quotation')
 export class QuotationController {
@@ -25,13 +25,13 @@ export class QuotationController {
   }
 
   @Post()
-  createQuotation(@Body() QuotationDto: QuotationDto) {
-    return this.quotationService.createQuotation(QuotationDto);
+  createQuotation(@Body() quotation: QuotationDto) {
+    return this.quotationService.createQuotation(quotation);
   }
 
   @Put(':id')
-  updateQuotation(@Param('id') id: number, @Body() QuotationDto: QuotationDto) {
-    return this.quotationService.updateQuotation(id, QuotationDto);
+  updateQuotation(@Param('id') id: number, @Body() quotation: QuotationDto) {
+    return this.quotationService.updateQuotation(id, quotation);
   }
 
   @Delete(':id')

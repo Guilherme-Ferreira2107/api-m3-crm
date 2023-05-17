@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { ContractEntity } from './contract.entity';
+import { StockMovementsEntity } from './stock-movements.entity';
 
 @Entity('equipments')
 export class EquipmentsEntity {
@@ -23,4 +24,7 @@ export class EquipmentsEntity {
 
   @OneToMany(() => ContractEntity, (contrato) => contrato.client)
   contract: ContractEntity[];
+
+  @OneToMany(() => StockMovementsEntity, (movement) => movement.equipment)
+  movement: ContractEntity[];
 }

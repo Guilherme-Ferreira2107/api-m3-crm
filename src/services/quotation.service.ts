@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { QuotationEntity } from '../entities/quotation.entity';
 import { QuotationDto } from '../dtos/quotation.dto';
+import { QuotationEntity } from '../entities/quotation.entity';
 
 @Injectable()
 export class QuotationService {
@@ -19,16 +19,16 @@ export class QuotationService {
     return this.quotationRepository.findOne({ where: { id } });
   }
 
-  async createQuotation(QuotationDto: QuotationDto): Promise<QuotationEntity> {
-    const Quotation = this.quotationRepository.create(QuotationDto);
-    return this.quotationRepository.save(Quotation);
+  async createQuotation(quotation: QuotationDto): Promise<QuotationEntity> {
+    const quotationCreated = this.quotationRepository.create(quotation);
+    return this.quotationRepository.save(quotationCreated);
   }
 
   async updateQuotation(
     id: number,
-    QuotationDto: QuotationDto,
+    quotation: QuotationDto,
   ): Promise<QuotationEntity> {
-    await this.quotationRepository.update(id, QuotationDto);
+    await this.quotationRepository.update(id, quotation);
     return this.quotationRepository.findOne({ where: { id } });
   }
 

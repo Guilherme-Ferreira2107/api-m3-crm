@@ -19,16 +19,16 @@ export class ContractService {
     return this.contractRepository.findOne({ where: { id } });
   }
 
-  async createContrato(contractDto: ContractDto): Promise<ContractEntity> {
-    const contrato = this.contractRepository.create(contractDto);
-    return this.contractRepository.save(contrato);
+  async createContrato(contract: ContractDto): Promise<ContractEntity> {
+    const contractCreated = this.contractRepository.create(contract);
+    return this.contractRepository.save(contractCreated);
   }
 
   async updateContrato(
     id: number,
-    contractDto: ContractDto,
+    contract: ContractDto,
   ): Promise<ContractEntity> {
-    await this.contractRepository.update(id, contractDto);
+    await this.contractRepository.update(id, contract);
     return this.contractRepository.findOne({ where: { id } });
   }
 
