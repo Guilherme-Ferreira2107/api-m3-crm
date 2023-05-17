@@ -15,7 +15,7 @@ export class QuotationEntity {
   @Column()
   clientId: number;
 
-  @Column()
+  @Column({ type: 'date' })
   dateQuotation: Date;
 
   @Column()

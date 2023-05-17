@@ -1,4 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { ClientEntity } from './client.entity';
 import { EquipmentsEntity } from './equipments.entity';
 
@@ -6,6 +12,12 @@ import { EquipmentsEntity } from './equipments.entity';
 export class ContractEntity {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @Column()
+  clientId: number;
+
+  @Column()
+  equipmentId: number;
 
   @Column()
   describe: string;
@@ -17,8 +29,10 @@ export class ContractEntity {
   dateFinal: Date;
 
   @ManyToOne(() => ClientEntity, (client) => client.contract)
+  @JoinColumn({ name: 'client_id' })
   client: ClientEntity;
 
   @ManyToOne(() => EquipmentsEntity, (equipment) => equipment.contract)
+  @JoinColumn({ name: 'equipments_id' })
   equipment: EquipmentsEntity;
 }

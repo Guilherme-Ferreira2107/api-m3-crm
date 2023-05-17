@@ -9,7 +9,7 @@ export class StockMovementsEntity {
   @Column()
   equipmentId: string;
 
-  @Column()
+  @Column({ type: 'date' })
   dateMovement: Date;
 
   @Column()
