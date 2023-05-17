@@ -1,23 +1,23 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { ClientesEntity } from './clientes.entity';
+import { ClientEntity } from './client.entity';
 
-@Entity('contratos')
-export class ContratosEntity {
+@Entity('contract')
+export class ContractEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  descricao: string;
+  describe: string;
 
   @Column({ type: 'date' })
-  dataInicio: Date;
+  dateStart: Date;
 
   @Column({ type: 'date' })
-  dataFim: Date;
+  dateFinal: Date;
 
   // Relacionamento com ClientesEntity (Many-to-One)
-  @ManyToOne(() => ClientesEntity, (cliente) => cliente.contratos)
-  cliente: ClientesEntity;
+  @ManyToOne(() => ClientEntity, (client) => client.contract)
+  client: ClientEntity;
 
   // Outros campos da entidade...
 

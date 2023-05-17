@@ -1,15 +1,15 @@
 import { IsNotEmpty, IsNumber, IsDateString } from 'class-validator';
 
-export class CotacoesDto {
+export class QuotationDto {
   @IsNotEmpty()
   @IsNumber()
-  clienteId: number;
+  clientId: number;
 
   @IsNotEmpty()
   @IsDateString()
-  dataCotacao: Date;
+  dateQuotation: Date;
 
   @IsNotEmpty()
   @IsNumber()
-  valorTotal: number;
+  totalValue: number;
 }

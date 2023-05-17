@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ClientesModule } from './clientes.module';
-import { ContratosModule } from './contratos.module';
-import { CotacoesModule } from './cotacoes.module';
+import { ClientModule } from './client.module';
+import { ContratosModule } from './contract.module';
+import { QuotationModule } from './quotation.module';
 
 @Module({
-  imports: [ClientesModule, ContratosModule, CotacoesModule],
+  imports: [ClientModule, ContratosModule, QuotationModule],
 })
 export class CoreModule {}

@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
-export class ClientesDto {
+export class ClientDto {
   @IsNotEmpty()
   @IsString()
   nome: string;
