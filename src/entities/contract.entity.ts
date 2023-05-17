@@ -9,6 +9,7 @@ import { BillingEntity } from './billing.entity';
 import { ClientEntity } from './client.entity';
 import { EquipmentsEntity } from './equipments.entity';
 import { PaymentsEntity } from './payments.entity';
+import { SupportEntity } from './support.entity';
 
 @Entity('contract')
 export class ContractEntity {
@@ -43,4 +44,7 @@ export class ContractEntity {
 
   @ManyToOne(() => PaymentsEntity, (item) => item.contract)
   payments: PaymentsEntity;
+
+  @ManyToOne(() => SupportEntity, (item) => item.contract)
+  support: SupportEntity;
 }
