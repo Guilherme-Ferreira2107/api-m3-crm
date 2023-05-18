@@ -11,20 +11,20 @@ export class ContractService {
     private contractRepository: Repository<ContractEntity>,
   ) {}
 
-  async getAllContratos(): Promise<ContractEntity[]> {
+  async getAllContracts(): Promise<ContractEntity[]> {
     return this.contractRepository.find();
   }
 
-  async getContratoById(id: number): Promise<ContractEntity> {
+  async getContractById(id: number): Promise<ContractEntity> {
     return this.contractRepository.findOne({ where: { id } });
   }
 
-  async createContrato(params: ContractDto): Promise<ContractEntity> {
+  async createContract(params: ContractDto): Promise<ContractEntity> {
     const itemCreated = this.contractRepository.create(params);
     return this.contractRepository.save(itemCreated);
   }
 
-  async updateContrato(
+  async updateContract(
     id: number,
     params: ContractDto,
   ): Promise<ContractEntity> {
@@ -32,7 +32,7 @@ export class ContractService {
     return this.contractRepository.findOne({ where: { id } });
   }
 
-  async deleteContrato(id: number): Promise<void> {
+  async deleteContract(id: number): Promise<void> {
     await this.contractRepository.delete(id);
   }
 }

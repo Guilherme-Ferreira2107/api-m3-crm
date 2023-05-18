@@ -15,27 +15,27 @@ export class ContractController {
   constructor(private readonly contractService: ContractService) {}
 
   @Get()
-  getAllContratos() {
-    return this.contractService.getAllContratos();
+  getAllContracts() {
+    return this.contractService.getAllContracts();
   }
 
   @Get(':id')
-  getContratoById(@Param('id') id: number) {
-    return this.contractService.getContratoById(id);
+  getContractById(@Param('id') id: number) {
+    return this.contractService.getContractById(id);
   }
 
   @Post()
-  createContrato(@Body() params: ContractDto) {
-    return this.contractService.createContrato(params);
+  createContract(@Body() params: ContractDto) {
+    return this.contractService.createContract(params);
   }
 
   @Put(':id')
-  updateContrato(@Param('id') id: number, @Body() params: ContractDto) {
-    return this.contractService.updateContrato(id, params);
+  updateContract(@Param('id') id: number, @Body() params: ContractDto) {
+    return this.contractService.updateContract(id, params);
   }
 
   @Delete(':id')
-  deleteContrato(@Param('id') id: number) {
-    return this.contractService.deleteContrato(id);
+  deleteContract(@Param('id') id: number) {
+    return this.contractService.deleteContract(id);
   }
 }
