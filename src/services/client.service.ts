@@ -11,8 +11,8 @@ export class ClientService {
     private clientRepository: Repository<ClientEntity>,
   ) {}
 
-  async createClient(client: ClientDto): Promise<ClientEntity> {
-    return this.clientRepository.save(client);
+  async createClient(params: ClientDto): Promise<ClientEntity> {
+    return this.clientRepository.save(params);
   }
 
   async getClientById(id: number): Promise<ClientEntity> {
@@ -25,9 +25,9 @@ export class ClientService {
 
   async updateClient(
     id: number,
-    updateClient: Partial<ClientDto>,
+    params: Partial<ClientDto>,
   ): Promise<ClientEntity> {
-    await this.clientRepository.update(id, updateClient);
+    await this.clientRepository.update(id, params);
     return this.getClientById(id);
   }
 

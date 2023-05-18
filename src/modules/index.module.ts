@@ -8,6 +8,7 @@ import { BillingModule } from './billing.module';
 import { PaymentsModule } from './payments.module';
 import { SupportModule } from './support.module';
 import { ProposalsModule } from './proposals.module';
+import { ReportsModule } from './reports.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ProposalsModule } from './proposals.module';
     PaymentsModule,
     SupportModule,
     ProposalsModule,
+    ReportsModule,
   ],
 })
 export class CoreModule {}

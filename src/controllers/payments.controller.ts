@@ -25,13 +25,13 @@ export class PaymentsController {
   }
 
   @Post()
-  createPayments(@Body() payments: PaymentsDto) {
-    return this.paymentsService.createPayments(payments);
+  createPayments(@Body() params: PaymentsDto) {
+    return this.paymentsService.createPayments(params);
   }
 
   @Put(':id')
-  updatePayments(@Param('id') id: number, @Body() payments: PaymentsDto) {
-    return this.paymentsService.updatePayments(id, payments);
+  updatePayments(@Param('id') id: number, @Body() params: PaymentsDto) {
+    return this.paymentsService.updatePayments(id, params);
   }
 
   @Delete(':id')

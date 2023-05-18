@@ -25,13 +25,13 @@ export class QuotationController {
   }
 
   @Post()
-  createQuotation(@Body() quotation: QuotationDto) {
-    return this.quotationService.createQuotation(quotation);
+  createQuotation(@Body() params: QuotationDto) {
+    return this.quotationService.createQuotation(params);
   }
 
   @Put(':id')
-  updateQuotation(@Param('id') id: number, @Body() quotation: QuotationDto) {
-    return this.quotationService.updateQuotation(id, quotation);
+  updateQuotation(@Param('id') id: number, @Body() params: QuotationDto) {
+    return this.quotationService.updateQuotation(id, params);
   }
 
   @Delete(':id')

@@ -25,13 +25,13 @@ export class BillingController {
   }
 
   @Post()
-  createBilling(@Body() billing: BillingDto) {
-    return this.billingService.createBilling(billing);
+  createBilling(@Body() params: BillingDto) {
+    return this.billingService.createBilling(params);
   }
 
   @Put(':id')
-  updateBilling(@Param('id') id: number, @Body() billing: BillingDto) {
-    return this.billingService.updateBilling(id, billing);
+  updateBilling(@Param('id') id: number, @Body() params: BillingDto) {
+    return this.billingService.updateBilling(id, params);
   }
 
   @Delete(':id')

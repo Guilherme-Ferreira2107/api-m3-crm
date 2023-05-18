@@ -25,16 +25,16 @@ export class StockMovementsController {
   }
 
   @Post()
-  createStockMovements(@Body() stockMovements: StockMovementsDto) {
-    return this.stockMovementService.createStockMovements(stockMovements);
+  createStockMovements(@Body() params: StockMovementsDto) {
+    return this.stockMovementService.createStockMovements(params);
   }
 
   @Put(':id')
   updateStockMovements(
     @Param('id') id: number,
-    @Body() stockMovements: StockMovementsDto,
+    @Body() params: StockMovementsDto,
   ) {
-    return this.stockMovementService.updateStockMovements(id, stockMovements);
+    return this.stockMovementService.updateStockMovements(id, params);
   }
 
   @Delete(':id')

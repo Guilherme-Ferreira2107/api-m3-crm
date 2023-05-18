@@ -25,13 +25,13 @@ export class ContractController {
   }
 
   @Post()
-  createContrato(@Body() contractDto: ContractDto) {
-    return this.contractService.createContrato(contractDto);
+  createContrato(@Body() params: ContractDto) {
+    return this.contractService.createContrato(params);
   }
 
   @Put(':id')
-  updateContrato(@Param('id') id: number, @Body() contractDto: ContractDto) {
-    return this.contractService.updateContrato(id, contractDto);
+  updateContrato(@Param('id') id: number, @Body() params: ContractDto) {
+    return this.contractService.updateContrato(id, params);
   }
 
   @Delete(':id')

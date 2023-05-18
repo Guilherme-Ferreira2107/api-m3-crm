@@ -11,8 +11,8 @@ export class EquipmentsService {
     private equipmentsRepository: Repository<EquipmentsEntity>,
   ) {}
 
-  async createEquipments(equipments: EquipmentsDto): Promise<EquipmentsEntity> {
-    return this.equipmentsRepository.save(equipments);
+  async createEquipments(params: EquipmentsDto): Promise<EquipmentsEntity> {
+    return this.equipmentsRepository.save(params);
   }
 
   async getEquipmentsById(id: number): Promise<EquipmentsEntity> {
@@ -25,9 +25,9 @@ export class EquipmentsService {
 
   async updateEquipments(
     id: number,
-    updateEquipments: Partial<EquipmentsDto>,
+    params: Partial<EquipmentsDto>,
   ): Promise<EquipmentsEntity> {
-    await this.equipmentsRepository.update(id, updateEquipments);
+    await this.equipmentsRepository.update(id, params);
     return this.getEquipmentsById(id);
   }
 

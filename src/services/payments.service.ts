@@ -19,16 +19,16 @@ export class PaymentsService {
     return this.paymentsRepository.findOne({ where: { id } });
   }
 
-  async createPayments(payments: PaymentsDto): Promise<PaymentsEntity> {
-    const paymentsCreated = this.paymentsRepository.create(payments);
-    return this.paymentsRepository.save(paymentsCreated);
+  async createPayments(params: PaymentsDto): Promise<PaymentsEntity> {
+    const itemCreated = this.paymentsRepository.create(params);
+    return this.paymentsRepository.save(itemCreated);
   }
 
   async updatePayments(
     id: number,
-    payments: PaymentsDto,
+    params: PaymentsDto,
   ): Promise<PaymentsEntity> {
-    await this.paymentsRepository.update(id, payments);
+    await this.paymentsRepository.update(id, params);
     return this.paymentsRepository.findOne({ where: { id } });
   }
 

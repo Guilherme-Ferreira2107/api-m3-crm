@@ -25,13 +25,13 @@ export class ClientController {
   }
 
   @Post()
-  async createClient(@Body() clientDto: ClientDto) {
-    return await this.clientService.createClient(clientDto);
+  async createClient(@Body() params: ClientDto) {
+    return await this.clientService.createClient(params);
   }
 
   @Put(':id')
-  async updateClient(@Param('id') id: number, @Body() clientDto: ClientDto) {
-    return await this.clientService.updateClient(id, clientDto);
+  async updateClient(@Param('id') id: number, @Body() params: ClientDto) {
+    return await this.clientService.updateClient(id, params);
   }
 
   @Delete(':id')

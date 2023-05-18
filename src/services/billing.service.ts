@@ -19,13 +19,13 @@ export class BillingService {
     return this.billingRepository.findOne({ where: { id } });
   }
 
-  async createBilling(billing: BillingDto): Promise<BillingEntity> {
-    const billingCreated = this.billingRepository.create(billing);
-    return this.billingRepository.save(billingCreated);
+  async createBilling(params: BillingDto): Promise<BillingEntity> {
+    const itemCreated = this.billingRepository.create(params);
+    return this.billingRepository.save(itemCreated);
   }
 
-  async updateBilling(id: number, billing: BillingDto): Promise<BillingEntity> {
-    await this.billingRepository.update(id, billing);
+  async updateBilling(id: number, params: BillingDto): Promise<BillingEntity> {
+    await this.billingRepository.update(id, params);
     return this.billingRepository.findOne({ where: { id } });
   }
 

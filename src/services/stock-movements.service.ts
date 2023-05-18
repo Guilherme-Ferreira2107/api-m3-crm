@@ -20,18 +20,17 @@ export class StockMovementsService {
   }
 
   async createStockMovements(
-    stockMovement: StockMovementsDto,
+    params: StockMovementsDto,
   ): Promise<StockMovementsEntity> {
-    const stockMovementCreated =
-      this.stockMovementRepository.create(stockMovement);
+    const stockMovementCreated = this.stockMovementRepository.create(params);
     return this.stockMovementRepository.save(stockMovementCreated);
   }
 
   async updateStockMovements(
     id: number,
-    stockMovement: StockMovementsDto,
+    params: StockMovementsDto,
   ): Promise<StockMovementsEntity> {
-    await this.stockMovementRepository.update(id, stockMovement);
+    await this.stockMovementRepository.update(id, params);
     return this.stockMovementRepository.findOne({ where: { id } });
   }
 

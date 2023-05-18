@@ -25,16 +25,16 @@ export class EquipmentsController {
   }
 
   @Post()
-  async createEquipments(@Body() equipments: EquipmentsDto) {
-    return await this.equipmentsService.createEquipments(equipments);
+  async createEquipments(@Body() params: EquipmentsDto) {
+    return await this.equipmentsService.createEquipments(params);
   }
 
   @Put(':id')
   async updateEquipments(
     @Param('id') id: number,
-    @Body() equipments: EquipmentsDto,
+    @Body() params: EquipmentsDto,
   ) {
-    return await this.equipmentsService.updateEquipments(id, equipments);
+    return await this.equipmentsService.updateEquipments(id, params);
   }
 
   @Delete(':id')

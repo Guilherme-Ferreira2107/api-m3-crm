@@ -19,16 +19,16 @@ export class QuotationService {
     return this.quotationRepository.findOne({ where: { id } });
   }
 
-  async createQuotation(quotation: QuotationDto): Promise<QuotationEntity> {
-    const quotationCreated = this.quotationRepository.create(quotation);
-    return this.quotationRepository.save(quotationCreated);
+  async createQuotation(params: QuotationDto): Promise<QuotationEntity> {
+    const itemCreated = this.quotationRepository.create(params);
+    return this.quotationRepository.save(itemCreated);
   }
 
   async updateQuotation(
     id: number,
-    quotation: QuotationDto,
+    params: QuotationDto,
   ): Promise<QuotationEntity> {
-    await this.quotationRepository.update(id, quotation);
+    await this.quotationRepository.update(id, params);
     return this.quotationRepository.findOne({ where: { id } });
   }
 
