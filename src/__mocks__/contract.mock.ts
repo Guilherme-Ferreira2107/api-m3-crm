@@ -1,4 +1,4 @@
-import { ContractDto } from 'src/dtos/contract.dto';
+import { ContractDto } from '../modules/contract/dtos/contract.dto';
 
 export const StockMovementsMock: ContractDto = {
   clientId: 1,

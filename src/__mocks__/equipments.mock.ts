@@ -1,4 +1,4 @@
-import { EquipmentsDto } from 'src/dtos/equipments.dto';
+import { EquipmentsDto } from '../modules/equipments/dtos/equipments.dto';
 
 export const EquipmentsMock: EquipmentsDto = {
   typeEquipment: 'Smartphone',

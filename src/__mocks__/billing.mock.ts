@@ -1,4 +1,4 @@
-import { BillingDto } from 'src/dtos/billing.dto';
+import { BillingDto } from '../modules/billing/dtos/billing.dto';
 
 export const BillingMock: BillingDto = {
   contractId: 1,

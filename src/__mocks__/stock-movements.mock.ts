@@ -1,4 +1,4 @@
-import { StockMovementsDto } from 'src/dtos/stock-movements.dto';
+import { StockMovementsDto } from '../modules/stock-movements/dtos/stock-movements.dto';
 
 export const StockMovementsMock: StockMovementsDto = {
   dateMovement: new Date(),

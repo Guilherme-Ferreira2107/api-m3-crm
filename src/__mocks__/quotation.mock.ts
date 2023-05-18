@@ -1,4 +1,4 @@
-import { QuotationDto } from 'src/dtos/quotation.dto';
+import { QuotationDto } from '../modules/quotation/dtos/quotation.dto';
 
 export const StockMovementsMock: QuotationDto = {
   clientId: 1,

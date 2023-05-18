@@ -1,4 +1,4 @@
-import { ProposalsDto } from 'src/dtos/proposals.dto';
+import { ProposalsDto } from '../modules/proposals/dtos/proposals.dto';
 
 export const SupportMock: ProposalsDto = {
   quotationId: 1,

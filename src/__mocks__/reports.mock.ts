@@ -1,4 +1,4 @@
-import { ReportsDto } from 'src/dtos/reports.dto';
+import { ReportsDto } from '../modules/reports/dtos/reports.dto';
 
 export const ReportsMock: ReportsDto = {
   reportType: 'Relatório de Vendas',

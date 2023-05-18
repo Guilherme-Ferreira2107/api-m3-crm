@@ -1,4 +1,4 @@
-import { SupportDto } from 'src/dtos/support.dto';
+import { SupportDto } from '../modules/support/dtos/support.dto';
 
 export const SupportMock: SupportDto = {
   contractId: 1,
