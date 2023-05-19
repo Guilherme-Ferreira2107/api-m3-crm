@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { CoreModule } from './modules/index.module';
+import { HttpExceptionFilter } from './shared/exceptions';
+import { TransformInterceptor } from './shared/interceptors';
 
 @Module({
   imports: [
@@ -16,6 +19,15 @@ import { CoreModule } from './modules/index.module';
     }),
     CoreModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: TransformInterceptor,
+    },
+  ],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { InvalidCredentialsException } from 'src/shared/exceptions';
 import { Repository } from 'typeorm';
 import { UserDto } from './dtos/user.dto';
 import { UserEntity } from './entities/user.entity';
@@ -12,11 +13,21 @@ export class UsersService {
   ) {}
 
   async getAllUsers(): Promise<UserEntity[]> {
-    return this.userRepository.find();
+    const response = this.userRepository.find();
+    if (response) {
+      (await response).map((item) => {
+        item.password = undefined;
+      });
+    }
+    return response;
   }
 
   async getUsersById(id: number): Promise<UserEntity> {
-    return this.userRepository.findOne({ where: { id } });
+    const response = this.userRepository.findOne({ where: { id } });
+    if (response) {
+      (await response).password = undefined;
+    }
+    return response;
   }
 
   async findByEmail(email: string): Promise<UserEntity> {
@@ -25,12 +36,20 @@ export class UsersService {
 
   async createUsers(params: UserDto): Promise<UserEntity> {
     const itemCreated = this.userRepository.create(params);
-    return this.userRepository.save(itemCreated);
+    const response = this.userRepository.save(itemCreated);
+    if (response) {
+      (await response).password = undefined;
+    }
+    return response;
   }
 
   async updateUsers(id: number, params: Partial<UserDto>): Promise<UserEntity> {
     await this.userRepository.update(id, params);
-    return this.userRepository.findOne({ where: { id } });
+    const response = this.userRepository.findOne({ where: { id } });
+    if (response) {
+      (await response).password = undefined;
+    }
+    return response;
   }
 
   async deleteUsers(id: number): Promise<void> {
