@@ -7,9 +7,11 @@ import { CoreModule } from './modules/index.module';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: './src/database/database.sqlite',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      type: 'postgres',
+      host: process.env.DB_HOST,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      autoLoadEntities: true,
       synchronize: true,
     }),
     CoreModule,

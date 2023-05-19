@@ -39,7 +39,7 @@ export class UsersController {
   @Put(':id')
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
-  updateUsers(@Param('id') id: number, @Body() params: UserDto) {
+  updateUsers(@Param('id') id: number, @Body() params: Partial<UserDto>) {
     return this.usersService.updateUsers(id, params);
   }
 

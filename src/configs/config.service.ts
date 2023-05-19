@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 @Injectable()
 export class ConfigService {
@@ -11,17 +10,6 @@ export class ConfigService {
 
   get(key: string): string {
     return this.envConfig[key];
-  }
-
-  getDatabaseConfig(): TypeOrmModuleOptions {
-    return {
-      type: 'mongodb',
-      url: this.get('MONGODB_URI'),
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      synchronize: true,
-      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-    };
   }
 
   getJwtSecret(): string {

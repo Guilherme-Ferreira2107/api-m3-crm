@@ -28,7 +28,7 @@ export class UsersService {
     return this.userRepository.save(itemCreated);
   }
 
-  async updateUsers(id: number, params: UserDto): Promise<UserEntity> {
+  async updateUsers(id: number, params: Partial<UserDto>): Promise<UserEntity> {
     await this.userRepository.update(id, params);
     return this.userRepository.findOne({ where: { id } });
   }
