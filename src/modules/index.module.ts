@@ -11,7 +11,8 @@ import { ProposalsModule } from './proposals/proposals.module';
 import { ReportsModule } from './reports/reports.module';
 import { MailsModule } from './mail/mail.module';
 import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
+// import { AuthModule } from './auth/auth.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -27,7 +28,8 @@ import { AuthModule } from './auth/auth.module';
     ReportsModule,
     MailsModule,
     UsersModule,
-    AuthModule,
+    // AuthModule,
+    HealthModule,
   ],
 })
 export class CoreModule {}

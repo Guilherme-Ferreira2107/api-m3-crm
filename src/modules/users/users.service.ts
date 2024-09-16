@@ -1,9 +1,10 @@
+import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { InvalidCredentialsException } from 'src/shared/exceptions';
-import { Repository } from 'typeorm';
+
 import { UserDto } from './dtos/user.dto';
 import { UserEntity } from './entities/user.entity';
+import { CreateUserDto } from './dtos/create-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -13,16 +14,21 @@ export class UsersService {
   ) {}
 
   async getAllUsers(): Promise<UserEntity[]> {
-    const response = this.userRepository.find();
-    if (response) {
-      (await response).map((item) => {
-        item.password = undefined;
-      });
+    try {
+      const response = await this.userRepository.find();
+      if (response) {
+        console.log('response: ', response);
+        response.map((item) => {
+          item.password = undefined;
+        });
+      }
+      return response;
+    } catch (error) {
+      console.log('error: ', error);
     }
-    return response;
   }
 
-  async getUsersById(id: number): Promise<UserEntity> {
+  async getUsersById(id: string): Promise<UserEntity> {
     const response = this.userRepository.findOne({ where: { id } });
     if (response) {
       (await response).password = undefined;
@@ -34,16 +40,16 @@ export class UsersService {
     return await this.userRepository.findOne({ where: { email } });
   }
 
-  async createUsers(params: UserDto): Promise<UserEntity> {
-    const itemCreated = this.userRepository.create(params);
-    const response = this.userRepository.save(itemCreated);
-    if (response) {
-      (await response).password = undefined;
+  async createUsers(params: CreateUserDto): Promise<UserEntity> {
+    const createdUser = await this.userRepository.save(params);
+
+    if (createdUser) {
+      createdUser.password = undefined;
     }
-    return response;
+    return createdUser;
   }
 
-  async updateUsers(id: number, params: Partial<UserDto>): Promise<UserEntity> {
+  async updateUsers(id: string, params: Partial<UserDto>): Promise<UserEntity> {
     await this.userRepository.update(id, params);
     const response = this.userRepository.findOne({ where: { id } });
     if (response) {
@@ -52,7 +58,7 @@ export class UsersService {
     return response;
   }
 
-  async deleteUsers(id: number): Promise<void> {
+  async deleteUsers(id: string): Promise<void> {
     await this.userRepository.delete(id);
   }
 }
